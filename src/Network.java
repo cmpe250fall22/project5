@@ -30,7 +30,7 @@ public class Network {
         adjacencyList.get(to).add(edge2);
 
         edge1.residual = edge2;
-        edge2.residual = edge2;
+        edge2.residual = edge1;
     }
 
     private boolean bfs(int sink) {
