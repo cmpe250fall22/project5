@@ -21,12 +21,13 @@ public class project5main {
             String[] info = in.readLine().strip().split(" ");
             if (info.length == 1)
                 continue;
-            for (int j = 1; j <= (info.length - 1) / 2 + 1; j += 2) {
-                if (Objects.equals(info[j], "KL"))
+            for (int j = 1; j <= info.length - 1; j += 2) {
+                if (Objects.equals(info[j], "KL")) {
                     westeros.addEdge(i, kingsLanding, Integer.parseInt(info[j + 1]));
-                else
-                    westeros.addEdge(i, 7 + Character.getNumericValue(info[j].charAt(1)),
-                            Integer.parseInt(info[j + 1]));
+                } else {
+                    int nodeNum = Integer.parseInt(info[j].substring(1));
+                    westeros.addEdge(i, 7 + nodeNum, Integer.parseInt(info[j + 1]));
+                }
             }
         }
         in.close();
